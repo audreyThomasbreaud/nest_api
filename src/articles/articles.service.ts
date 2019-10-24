@@ -13,4 +13,8 @@ export class ArticlesService {
     async findAll(): Promise<Articles[]> {
         return await this.ArticleRepository.find();
     }
+
+    async create(articles: Articles): Promise<Articles> {
+        return await this.ArticleRepository.save(articles);
+    }
 }
