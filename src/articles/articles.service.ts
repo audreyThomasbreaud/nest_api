@@ -17,4 +17,12 @@ export class ArticlesService {
     async create(articles: Articles): Promise<Articles> {
         return await this.ArticleRepository.save(articles);
     }
-}
+
+    async update(id: number, articles: Articles): Promise<any> {
+        return  await this.ArticleRepository.update(articles.id, articles);
+    }
+
+    async delete(id): Promise<any> {
+        return await this.ArticleRepository.delete(id);
+    }
+    }
