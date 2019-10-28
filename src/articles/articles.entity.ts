@@ -14,4 +14,5 @@ export class Articles {
 
     @Column()
     auteur: string;
+
 }
