@@ -16,7 +16,6 @@ export class ArticlesService {
     }
 
     async create(articles: Articles): Promise<Articles> {
-        // return await this.ArticleRepository.save(articles);
         return await this.ArticleRepository.save(articles);
     }
 
