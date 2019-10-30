@@ -5,7 +5,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ArticlesModule } from './articles/articles.module';
 import { Articles } from './articles/articles.entity';
 import { ConfigModule } from './config/config.module';
-
+import { User } from './user/user.entity';
+import { UserModule } from './user/user.module';
+import { CategorieModule } from './categorie/categorie.module';
+import { Categorie } from './categorie/categorie.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -14,12 +17,14 @@ import { ConfigModule } from './config/config.module';
       port: 3306,
       username: 'root',
       password: '',
-      database: 'articles',
-      entities: [Articles],
+      database: 'blog',
+      entities: [Articles, User, Categorie],
       synchronize: true,
     }),
     ArticlesModule,
     ConfigModule,
+    UserModule,
+    CategorieModule,
   ],
   controllers: [AppController],
   providers: [AppService],
