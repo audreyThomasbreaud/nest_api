@@ -14,12 +14,6 @@ export class Articles {
     @Column()
     content: string;
 
-    // @Column()
-    // idCategorie: number;
-
-    // @Column()
-    // idUser: number;
-
     @ManyToOne(type => User, user => user.name)
     user: User;
 

@@ -12,6 +12,11 @@ export class UserController {
         return this.userService.findAll();
     }
 
+    @Get('find/:id')
+    async GetUserid(@Param('id') id: number, @Body() userData: User): Promise<any> {
+        return this.userService.findOne(id, userData);
+    }
+
     @Post('create')
     async create(@Body() userData: User): Promise<any> {
         return this.userService.create(userData);
