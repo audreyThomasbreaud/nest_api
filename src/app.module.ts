@@ -9,8 +9,11 @@ import { User } from './user/user.entity';
 import { UserModule } from './user/user.module';
 import { CategorieModule } from './categorie/categorie.module';
 import { Categorie } from './categorie/categorie.entity';
+import { AuthModule } from './auth/auth.module';
+import { PassportModule } from '@nestjs/passport';
+
 @Module({
-  imports: [
+  imports: [PassportModule.register({defaultStrategy: 'jwt'}),
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
@@ -25,6 +28,7 @@ import { Categorie } from './categorie/categorie.entity';
     ConfigModule,
     UserModule,
     CategorieModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
